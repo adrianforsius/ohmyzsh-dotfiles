@@ -1,13 +1,37 @@
-# --- EXPORTS (& other stuff copied from dotfiles) ----------
-# Make vim the default editor
-export EDITOR="vim"
+#!/usr/bin/env bash
 
-# Prefer US English and UTF-8
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+# Make vim the default editor.
+export EDITOR='vim';
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history;
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';
 
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom"
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
+
+# add time to History
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+export GPG_TTY=$(tty)
+
+export VIRTUAL_ENV_DISABLE_PROMPT=0
