@@ -3,42 +3,63 @@ upgrade
 install coreutils
 install wget --enable-iri
 tap homebrew/dupes
+tap homebrew/core
+tap homebrew/bundle
 install homebrew/dupes/grep
 install ack
 install git
 install tree
 
-tap josegonzalez/homebrew-php
-
 install openssl
-install php54-mcrypt
-install josegonzalez/php/composer
 install optipng
-install redis
-install mysql
-install phpunit
-install postgresql
+
+brew install python
+brew install coreutils
+brew install curl
+brew install go
+brew install docker-compose
+brew install gcc
+brew install git
+brew install grep, args: ["with-default-names"]
+brew install netcat
+brew install vim
+brew install wget
+brew install zsh
+brew install zsh-completions
 
 install caskroom/cask/brew-cask
 
-cask install alfred
 cask install caffeine
 cask install flux
 
 cask install virtualbox
 cask install vagrant
+cask install docker
 
 cask install google-chrome
 cask install iterm2
-cask install phpstorm
 cask install sequel-pro
+cask install franz
 
-cask install adium
-cask install nvalt
-cask install rdio
 cask install slack
 cask install textexpander
 cask install vlc
 cask install the-unarchiver
+cask install gimp
+
+cask install firefox
+
+cask install keybase
+
+cask install macdown
+cask install minikube
+
+cask install plex-media-server
+cask install recordit
+cask install skype
+cask install spectacle
+cask install spotif
+cask install transmission
+cask install xquartz
 
 cleanup
