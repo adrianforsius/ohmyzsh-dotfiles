@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 echo "Sorry, this currently does not work for ZSH. Gotta do it yourself for right now."
-exit 0
 
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
