@@ -6,7 +6,7 @@
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
-	gpgsign = true
+	#gpgsign = true
 [url "git@github.com:"]
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
@@ -50,10 +50,10 @@
 	rev = "!f() { git rev-list --count HEAD ^master; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!f() { git rebase -i HEAD~$1; }; f"
-	# 
+	#
 	rem = "!f() { git rebase origin/master; }; f"
 	# Push to own branchh
-	ne = "!f() { git commit --amend --no-edit; }; f"
+	ne = "!f() { git commit --no-verify --amend --no-edit; }; f"
 	# Find branches containing commit
 	e = "!f() { git config --global -e; }; f"
 	# Master rebase
@@ -66,12 +66,20 @@
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 	# Remove branches that have already been merged with master
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	# set upstream
+	up = "!git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)"
 	# Push to own branchh
 	po = "!git push origin \"$(git rev-parse --abbrev-ref HEAD)\""
 	# Make temporal wip commit
-	w = "!git commit -m wip"
+	w = "!git commit --no-verify -m wip"
 	# Reset head one back
 	rh = "!git reset HEAD~1"
+	# List recent checked out branches
+	lb = "!f() { git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)' | head -n 15; }; f"
+	# List commits between dates
+	lc = "!f() { git log --pretty=format:'%ad - %an: %s %H' --after='$(date --date=\"10 days ago\")' --until='$(date)'; }; f"
+	# count commits since master
+	ccm = "!git rev-list --count HEAD ^master"
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -93,10 +101,16 @@
 	untracked = cyan
 	ui = auto
 [diff]
-	wsErrorHighlight = all
-	tool = kdiff3
-[merge]
 	tool = vimdiff
+	wsErrorHighlight = all
+[merge]
 	conflictstyle = diff3
+	tool = vimdiff
 [mergetool]
+	keepBackup = false
 	prompt = false
+	tool = vimdiff
+[pull]
+	rebase = true
+[pager]
+	branch = false
