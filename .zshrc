@@ -67,3 +67,5 @@ plugins=(zsh-syntax-highlighting aws brew zsh-completions autopep8 docker pgp-ag
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
