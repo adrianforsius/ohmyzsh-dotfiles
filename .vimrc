@@ -3,13 +3,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'editorconfig/editorconfig-vim'
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
+	Plug 'tpope/vim-rhubarb'
 	Plug 'fatih/vim-go'
+	Plug 'morhetz/gruvbox'
 
 " Syntax and linters
 	Plug 'gabrielelana/vim-markdown'
@@ -21,15 +22,15 @@ filetype indent plugin on
 
 " Use the Solarized Dark theme
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
-let g:solarized_termtrans=1
+"let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+set clipboard=unnamedplus
+
 " Enhance command-line completion
 set wildmode=longest,list
 set wildmenu
