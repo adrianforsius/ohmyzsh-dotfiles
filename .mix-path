@@ -18,10 +18,3 @@ export PATH="$HOME/bin:$PATH"
 
 # Brew first class citizen
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-# pyenv
-# export PATH="$(pyenv root)/shims:$PATH"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-
-# # virtualenv
-# export PATH="$HOME/.pyenv/shims/virtualenv:$PATH"
